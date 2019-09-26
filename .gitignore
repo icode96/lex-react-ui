@@ -1,5 +1,6 @@
-.history/
-.vscode/
+.history
+.vscode
 .DS_Store
-node_modules/
+build
+node_modules
 docker-compose.yml
