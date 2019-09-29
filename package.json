@@ -3,17 +3,23 @@
   "version": "0.1.2",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "build/index.js",
+  "module": "build/index.es.js",
+  "jsnext:main": "build/index.es.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/veenstack/lex-react-ui.git"
   },
   "keywords": [
-    "react",
-    "aws-lex"
+    "react-lex",
+    "aws-lex-ui",
+    "amazon",
+    "lex-chatbot",
+    "chat-snippet"
   ],
   "author": "naveen <naveen.rajapaksa@gmail.com>",
   "license": "ISC",
@@ -21,16 +27,55 @@
     "url": "https://github.com/veenstack/lex-react-ui/issues"
   },
   "homepage": "https://github.com/veenstack/lex-react-ui#readme",
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.6",
-    "webpack": "^4.41.0"
+    "@types/autoprefixer": "^9.6.1",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.8",
+    "@types/react": "^16.9.3",
+    "@types/react-dom": "^16.9.1",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "autoprefixer": "^9.6.1",
+    "eslint": "^6.5.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.1.1",
+    "glob": "^7.1.4",
+    "husky": "^3.0.7",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.0",
+    "prettier": "^1.18.2",
+    "rollup": "^1.21.4",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-postcss-modules": "^2.0.1",
+    "rollup-plugin-sass": "^1.2.2",
+    "rollup-plugin-typescript2": "^0.24.3",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
   },
   "dependencies": {
-    "clean-webpack-plugin": "^3.0.0",
+    "antd": "^3.23.4",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
-    "webpack-cli": "^3.3.9"
+    "react-dom": "^16.9.0"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   }
 }
