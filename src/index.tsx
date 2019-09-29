@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import 'antd/dist/antd.css';
+import './global-styles.css';
 import styles from './index.css';
 
 const LexChatSnippet = (props: React.Props<Record<string, unknown>>) =>

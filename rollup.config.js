@@ -56,7 +56,13 @@ export default {
     postcss({
 			extract: 'build/lex-react-ui.css',
 			plugins: [autoprefixer()],
-			writeDefinitions: true,
+      writeDefinitions: true,
+      modules: {
+        globalModulePaths: [
+          'antd/dist/antd.css',
+          './src/global-styles.css'
+        ]
+      }
     }),
     typescript({
       rollupCommonJSResolveHack: true,

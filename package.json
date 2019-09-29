@@ -6,6 +6,7 @@
   "module": "build/index.es.js",
   "jsnext:main": "build/index.es.js",
   "scripts": {
+    "start": "rollup -c -w",
     "build": "rollup -c",
     "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
     "test": "jest"
@@ -55,6 +56,7 @@
     "husky": "^3.0.7",
     "jest": "^24.9.0",
     "lint-staged": "^9.4.0",
+    "postcss-modules": "^1.4.1",
     "prettier": "^1.18.2",
     "rollup": "^1.21.4",
     "rollup-plugin-commonjs": "^10.1.0",
