@@ -1,32 +1,57 @@
 .chat-window-wrapper {
   position: relative;
-  width: 250px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  width: 270px;
   height: 300px;
   background: #ffffff;
 }
 
 .chat-window-wrapper .chat-input-holder {
-  position: absolute;
-  bottom: 0;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
 }
 
 .chat-window-wrapper .chat-input-holder .chat-input-field {
   padding: 8px;
-  width: 100%;
+  float: left;
+  width: calc(100% - 30px);
   box-shadow: 0 1px 6px rgba(0,0,0,.1), 0 2px 24px rgba(0,0,0,.2);
   border-radius: 8px;
   outline: none;
 }
 
-.chat-window-wrapper .chat-input-holder .chat-input-field[data-placeholder]:not(:focus):not([data-div-placeholder-content]):before {
+.chat-window-wrapper .chat-input-holder .chat-send-message {
+  margin: 0 0 5px;
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
+  align-self: flex-end;
+}
 
-  content: attr(data-placeholder);
-
+.chat-window-wrapper .chat-input-holder .chat-input-field[contenteditable=true]:empty:before {
+  content: attr(placeholder);
   float: left;
-
   margin-left: 2px;
-
   color: #b3b3b3;
+}
 
+.chat-window-wrapper .chat-list-holder {
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.chat-window-wrapper .chat-list-holder .chat-block {
+  display: block;
+  width: 75%
+}
+
+.chat-window-wrapper .chat-list-holder .chat-block.them {
+  float: left;
+}
+
+.chat-window-wrapper .chat-list-holder .chat-block.me {
+  float: right;
 }
