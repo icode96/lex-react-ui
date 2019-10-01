@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Icon } from 'antd';
+import { Avatar, Icon } from 'antd';
 import ContentEditable from 'react-contenteditable';
 
 import { 
   chatWindowWrapper, chatInputHolder, chatInputField, chatSendMessage,
-  chatListHolder, chatBlock, me, them
+  chatListHolder, chatBlock, me, them,
+  avatarWrapper, messageContainer, messageBlock
  } from './chat-window.css';
 export default function ChatWindow(props: any) {
   const placeholder: string = props['placeholder'];
@@ -28,8 +29,25 @@ export default function ChatWindow(props: any) {
           }
       </div> 
       <div className={chatListHolder}>
-        <div className={`${chatBlock} ${them}`}>Hello 1</div>
-        <div className={`${chatBlock} ${me}`}>Hello 2</div>
+        {
+          [...new Array(5)].map((i) => (
+            <>
+              <div className={`${chatBlock} ${them}`}>
+          <div className={avatarWrapper}>
+            <Avatar size={28} icon="user" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+          </div>
+          <div className={messageContainer}>
+            <div className={messageBlock}>hello them {i}</div>
+          </div>
+        </div>
+        <div className={`${chatBlock} ${me}`}>
+          <div className={messageContainer}>
+            <div className={messageBlock}>hello me {i}</div>
+          </div>
+        </div>
+            </>
+          ))
+        }
       </div>
     </div>
   );

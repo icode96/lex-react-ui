@@ -9,8 +9,6 @@
 }
 
 .chat-window-wrapper .chat-input-holder {
-  display: flex;
-  justify-content: space-between;
   width: 100%;
 }
 
@@ -18,17 +16,25 @@
   padding: 8px;
   float: left;
   width: calc(100% - 30px);
+  min-height: 37px;
   box-shadow: 0 1px 6px rgba(0,0,0,.1), 0 2px 24px rgba(0,0,0,.2);
   border-radius: 8px;
   outline: none;
 }
 
 .chat-window-wrapper .chat-input-holder .chat-send-message {
+  position: absolute;
   margin: 0 0 5px;
+  bottom: 0;
+  right: 0;
   float: right;
   font-size: 25px;
   cursor: pointer;
-  align-self: flex-end;
+}
+
+.chat-window-wrapper .chat-input-holder .chat-input-field[contenteditable=true] {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 .chat-window-wrapper .chat-input-holder .chat-input-field[contenteditable=true]:empty:before {
@@ -41,17 +47,68 @@
 .chat-window-wrapper .chat-list-holder {
   margin-bottom: 5px;
   width: 100%;
+  overflow: scroll;
 }
 
 .chat-window-wrapper .chat-list-holder .chat-block {
+  margin-bottom: 10px;
   display: block;
   width: 75%
+}
+
+.chat-window-wrapper .chat-list-holder .chat-block.me {
+  float: right;
 }
 
 .chat-window-wrapper .chat-list-holder .chat-block.them {
   float: left;
 }
 
-.chat-window-wrapper .chat-list-holder .chat-block.me {
+.chat-window-wrapper .chat-list-holder .chat-block .avatar-wrapper {
+  
+}
+
+.chat-window-wrapper .chat-list-holder .chat-block .message-container {
+  
+}
+
+.chat-window-wrapper .chat-list-holder .chat-block.me .message-container {
   float: right;
+}
+
+.chat-window-wrapper .chat-list-holder .chat-block.them .avatar-wrapper {
+  float: left;
+}
+
+.chat-window-wrapper .chat-list-holder .chat-block.them .message-container {
+  margin-left: 8px;
+  float: left;
+}
+
+.chat-window-wrapper .chat-list-holder .chat-block .message-container .message-block {
+  margin-bottom: 4px;
+  padding: 8px 16px;
+  min-height: 32px;
+  border-radius: 0 12px 12px 0;
+  word-break: break-word;
+  box-sizing: border-box;
+  background-color: #eaf0f6;
+}
+
+.chat-window-wrapper .chat-list-holder .chat-block .message-container .message-block:first-child {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.chat-window-wrapper .chat-list-holder .chat-block .message-container .message-block:last-child {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.chat-window-wrapper .chat-list-holder .chat-block.them .message-container .message-block:first-child {
+  border-top-left-radius: 2px;
+}
+
+.chat-window-wrapper .chat-list-holder .chat-block.me .message-container .message-block:first-child {
+  border-top-right-radius: 2px;
 }
